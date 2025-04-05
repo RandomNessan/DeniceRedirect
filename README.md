@@ -20,7 +20,7 @@ A php based website software that allows your site-visitor's acknowledgement of 
   回到vps>
     清空根目录下默认文件后，通过SSH登录VPS并进行以下操作。
 		
-   	# 克隆Repo
+   	        # 克隆Repo
 		git clone https://github.com/RandomNessan/DeniceRedirect.git
 
 		# 进入克隆下来的文件夹
