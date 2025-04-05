@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             justify-content: center;
             align-items: center;
             background-color: #f4f4f4;
+            position: relative;
         }
         .card {
             background: white;
@@ -110,6 +111,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .submit-btn:hover {
             background-color: #219150;
         }
+
+        /* 右下角版权信息 */
+        .footer {
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +148,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" class="submit-btn">添加 URL</button>
             </form>
         </div>
+    </div>
+
+    <!-- 右下角版权信息 -->
+    <div class="footer">
+        <a href="https://github.com/RandomNessan/DeniceRedirect" target="_blank">Copyright@RandomNessan 2025</a>
     </div>
 
 </body>
