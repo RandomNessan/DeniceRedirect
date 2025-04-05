@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 require_once '../config/db.php';
 
@@ -36,6 +36,7 @@ $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
         body {
             display: flex;
             height: 100vh;
+            position: relative;
         }
         /* 左侧导航栏 */
         .sidebar {
@@ -115,6 +116,22 @@ $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
         .delete-btn:hover {
             background-color: #c0392b;
         }
+        /* 版权信息 */
+        .hidden-footer {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: "Arial", sans-serif;
+        }
+        .hidden-footer a {
+            color: #00c3ff;
+            text-decoration: none;
+        }
+        .hidden-footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -153,6 +170,21 @@ $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const footer = document.createElement("div");
+            footer.className = "hidden-footer";
+            
+            const encodedText = atob("Q29weXJpZ2h0QFJhbmRvbU5lc3NhbiAyMDI1");
+            const link = document.createElement("a");
+            link.href = "https://github.com/RandomNessan/DeniceRedirect";
+            link.innerText = encodedText.replace("RandomNessan", "RandomNessan");
+            link.target = "_blank";
+
+            footer.appendChild(link);
+            document.body.appendChild(footer);
+        });
+    </script>
+
 </body>
 </html>
-
