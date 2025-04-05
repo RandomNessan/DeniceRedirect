@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cd /www/wwwroot/pool.spacesyun.com/public  # 进入 public 目录
-ln -s ../admin admin  # 创建软链接
-ls -l  # 确认软链接是否创建成功
+echo "🚀 开始设置网站和数据库信息..."
 
-echo "🚀 开始设置数据库信息..."
+# 交互式获取网站 URL
+read -p "请输入您的网站 URL (例如: pool.spacesyun.com): " SITE_URL
+WEB_ROOT="/www/wwwroot/${SITE_URL}/public"
 
 # 交互式获取数据库信息
 read -p "请输入数据库主机名 (默认: localhost): " DB_HOST
@@ -43,4 +43,28 @@ if [ $? -eq 0 ]; then
     echo "✅ 数据库初始化成功！"
 else
     echo "❌ 数据库初始化失败，请检查 MySQL 配置！"
+    exit 1
 fi
+
+# 创建软链接
+echo "🚀 正在创建软链接 /admin -> ../admin"
+cd "$WEB_ROOT" || { echo "❌ 目录 $WEB_ROOT 不存在，请检查您的输入！"; exit 1; }
+
+if [ -L "admin" ]; then
+    echo "✅ 软链接已存在，无需重复创建。"
+else
+    ln -s ../admin admin
+    echo "✅ 软链接创建成功！"
+fi
+
+# 验证软链接
+ls -l admin
+
+echo "🎉 网站和数据库已成功配置完成！"
+echo "============================================================"
+echo "默认用户名: admin"
+echo "默认密码: admin"
+
+echo "请手动设置 /public 目录为 Running directory "
+echo "设置完成后即可访问https://" ${SITE_URL} "/admin 进行管理操作"
+echo "============================================================"
