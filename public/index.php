@@ -86,6 +86,15 @@ $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background: #0078aa;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
         }
+        .hidden-copyright {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #fff;
+            opacity: 0.7;
+            user-select: none;
+        }
     </style>
     <script>
         async function pingURL(url, elementId) {
@@ -109,6 +118,23 @@ $urls = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 document.getElementById(elementId).style.color = "#541404"; // 血色
             }
         }
+
+        // 版权信息加密（无法轻易删除）
+        document.addEventListener("DOMContentLoaded", function () {
+            const footer = document.createElement("div");
+            footer.classList.add("hidden-copyright");
+
+            // 采用 escape() 编码，防止乱码
+            const encodedText = "%u0043%u006F%u0070%u0079%u0072%u0069%u0067%u0068%u0074%u0040%u0052%u0061%u006E%u0064%u006F%u006D%u004E%u0065%u0073%u0073%u0061%u006E%u0020%u0032%u0030%u0032%u0035";
+            const encodedHref = "https://github.com/RandomNessan/DeniceRedirect";
+
+            // 解码
+            const copyrightText = unescape(encodedText);
+
+            // 插入到 HTML
+            footer.innerHTML = `<span>${copyrightText.replace("RandomNessan", `<a href="${encodedHref}" target="_blank" style="color:#fff;text-decoration:none;">RandomNessan</a>`)}</span>`;
+            document.body.appendChild(footer);
+        });
     </script>
 </head>
 <body>
