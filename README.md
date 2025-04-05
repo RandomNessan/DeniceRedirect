@@ -30,6 +30,6 @@ A php based website software that allows your site-visitor's acknowledgement of 
 		chmod +x setup.sh
 
 		# 运行setup文件
-	  ./setup.sh
+	       ./setup.sh
 
    初始化完毕后进入aapanel网站设置，将网站运行目录(Site Directory)设置为"/public"。开启SSL(可选)。
