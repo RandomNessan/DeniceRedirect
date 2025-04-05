@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cd /www/wwwroot/pool.spacesyun.com/public  # 进入 public 目录
+ln -s ../admin admin  # 创建软链接
+ls -l  # 确认软链接是否创建成功
+
 echo "🚀 开始设置数据库信息..."
 
 # 交互式获取数据库信息
