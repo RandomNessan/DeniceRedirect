@@ -5,11 +5,15 @@ A php based website software that allows your site-visitor's acknowledgement of 
 界面无任何特征，一定程度上可以起到防被ban的作用。一些从事有趣行业的运营者可以直接套用。
 
 部署方式>
+  
   依赖>
    在vps上安装aapanel然后安装下列软件:
-			Nginx 1.24
-			MySQL 8.0
-			PHP 7.4
+			
+   Nginx 1.24
+			
+   MySQL 8.0
+			
+   PHP 7.4
 
   域名解析>
     没什么好说的
