@@ -3,7 +3,7 @@
 echo "🚀 开始设置网站和数据库信息..."
 
 # 交互式获取网站 URL
-read -p "请输入您的网站 URL (例如: pool.spacesyun.com): " SITE_URL
+read -p "请输入您的网站 URL (例如: aaa.bbb.com): " SITE_URL
 WEB_ROOT="/www/wwwroot/${SITE_URL}"
 
 # 检查 `WEB_ROOT` 是否存在，不存在则创建
@@ -94,4 +94,9 @@ else
 fi
 
 echo "🎉 网站部署完成！"
-
+echo "============================================================"
+echo "网站访问信息> "
+echo "默认用户名: admin"
+echo "默认密码: admin"
+echo "现在可以访问 https://"${SITE_URL}"/admin 对网站进行管理操作"
+echo "============================================================"
