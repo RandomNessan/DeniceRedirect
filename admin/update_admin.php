@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             height: 100vh;
         }
+
         /* 左侧导航栏 */
         .sidebar {
             width: 250px;
@@ -91,6 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background-color: #f4f4f4;
+            position: relative;
         }
         .form-container {
             width: 400px;
@@ -134,6 +137,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: green;
             margin-top: 10px;
         }
+
+        /* 右下角版权信息 */
+        .footer {
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -165,6 +184,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
+    <div class="footer">
+        <a href="https://github.com/RandomNessan/DeniceRedirect" target="_blank">Copyright@RandomNessan 2025</a>
+    </div>
+
 </body>
 </html>
-
