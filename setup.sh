@@ -2,7 +2,7 @@
 
 echo "🚀 开始设置网站和数据库信息..."
 
-# 交互式获取网站 URL
+
 read -p "请输入您的网站 URL (例如: aaa.bbb.com): " SITE_URL
 WEB_ROOT="/www/wwwroot/${SITE_URL}"
 
@@ -13,27 +13,27 @@ if [ ! -d "$WEB_ROOT" ]; then
     echo "✅ 目录创建成功！"
 fi
 
-# 进入 `/root` 目录，执行 `git clone`
+
 cd /root || exit 1
 echo "🚀 正在克隆仓库..."
 git clone https://github.com/RandomNessan/DeniceRedirect.git
 
-# 检查 `DeniceRedirect` 是否克隆成功
+
 if [ ! -d "/root/DeniceRedirect" ]; then
     echo "❌ 克隆失败，请检查网络或 GitHub 仓库地址！"
     exit 1
 fi
 
-# 复制 `DeniceRedirect` 里的所有文件到 `WEB_ROOT`
+
 echo "📂 正在复制文件到 $WEB_ROOT ..."
 cp -r /root/DeniceRedirect/* "$WEB_ROOT"
 
-# 删除 `DeniceRedirect` 目录
+
 echo "🗑️ 正在删除临时目录 /root/DeniceRedirect..."
 rm -rf /root/DeniceRedirect
 echo "✅ 删除完成！"
 
-# 进入 `public` 目录创建软链接
+
 WEB_PUBLIC="$WEB_ROOT/public"
 if [ ! -d "$WEB_PUBLIC" ]; then
     echo "❌ 目录 $WEB_PUBLIC 不存在，请检查网站结构！"
@@ -49,12 +49,12 @@ else
     echo "✅ 软链接创建成功！"
 fi
 
-# 验证软链接
+
 ls -l admin
 
 echo "🚀 开始设置数据库信息..."
 
-# 交互式获取数据库信息
+
 read -p "请输入数据库主机名 (默认: localhost): " DB_HOST
 DB_HOST=${DB_HOST:-localhost}
 
@@ -63,7 +63,7 @@ read -p "请输入数据库用户名: " DB_USER
 read -sp "请输入数据库密码: " DB_PASS
 echo
 
-# 创建 .env 文件
+
 cat <<EOF > "$WEB_ROOT/.env"
 # 数据库配置
 DB_HOST="$DB_HOST"
