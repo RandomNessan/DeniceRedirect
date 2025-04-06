@@ -6,7 +6,6 @@ echo "🚀 开始设置网站和数据库信息..."
 read -p "请输入您的网站 URL (例如: aaa.bbb.com): " SITE_URL
 WEB_ROOT="/www/wwwroot/${SITE_URL}"
 
-# 检查 `WEB_ROOT` 是否存在，不存在则创建
 if [ ! -d "$WEB_ROOT" ]; then
     echo "📂 目录 $WEB_ROOT 不存在，正在创建..."
     mkdir -p "$WEB_ROOT"
