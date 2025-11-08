@@ -5,7 +5,7 @@
 1. 在vps上安装aapanel然后安装下列软件: Nginx 1.24; MySQL 8.0; PHP 7.4。
 2. 解析域名后创建网站, 创建数据库,php选择7.4。 数据库名和数据表名必须为"pool_route"。
 3. 回到vps, 清空根目录下默认文件后进行以下操作。
-    
+    ``
     # 克隆Repo
 	git clone https://github.com/RandomNessan/DeniceRedirect.git
 
@@ -14,5 +14,6 @@
 
 	# 运行setup文件进行安装
     ./setup.sh
-4. 开启SSL(可选)。
-5. index.php有多种风格可选：Commercial, Cyber, Dream, Hacker。自行切换即可。
+   ``
+5. 开启SSL(可选)。
+6. index.php有多种风格可选：Commercial, Cyber, Dream, Hacker。自行切换即可。
